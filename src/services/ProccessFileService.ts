@@ -45,7 +45,7 @@ export const proccessFile = async (pathName: string): Promise<NameAndPhone[]> =>
           await fs.unlinkSync(pathName)
           resolve(lastProcessArray)
         } catch (err: any) {
-          console.log("Error in process file... ", err.message)
+          console.log('Error in process file... ', err.message)
           resolve([])
         }
       }

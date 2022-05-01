@@ -1,43 +1,43 @@
 {
-    "name": "bot-wp",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node index.js",
-        "build": "tsc --build && cp ./src/configs/MessageDefault.txt ./build/src/configs/MessageDefault.txt && cp -r ./src/views/ ./build/src/ && cp ./.env ./build/.env",
-        "build-clean": "rm -rf build",
-        "post-build": "cp ./src/configs/MessageDefault.txt ./build/src/configs/MessageDefault.txt && cp -r ./src/views/ ./build/src/",
-        "dev": "nodemon --watch './**/*.ts' --exec 'ts-node' index.ts",
-        "lint": "eslint --quiet .  --ext .ts",
-        "lint-fix": "eslint --quiet --fix .  --ext .ts",
-        "prettier": "npx prettier --write ."
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "csv-parse": "^5.0.4",
-        "csv-parser": "^3.0.0",
-        "dotenv": "^16.0.0",
-        "express": "^4.18.1",
-        "multer": "^1.4.4",
-        "nodemon": "^2.0.16",
-        "qr-image": "^3.2.0",
-        "qrcode-terminal": "^0.12.0",
-        "ts-node": "^10.7.0",
-        "whatsapp-web.js": "^1.16.6"
-    },
-    "devDependencies": {
-        "@types/express": "^4.17.13",
-        "@types/multer": "^1.4.7",
-        "@types/qrcode-terminal": "^0.12.0",
-        "@typescript-eslint/eslint-plugin": "^5.21.0",
-        "@typescript-eslint/parser": "^5.21.0",
-        "eslint": "^8.14.0",
-        "eslint-config-google": "^0.14.0",
-        "prettier": "2.6.2",
-        "typescript": "^4.6.4"
-    }
+  "name": "bot-wp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "build": "tsc --build && cp ./src/configs/MessageDefault.txt ./build/src/configs/MessageDefault.txt && cp -r ./src/views/ ./build/src/ && cp ./.env ./build/.env",
+    "build-clean": "rm -rf build",
+    "post-build": "cp ./src/configs/MessageDefault.txt ./build/src/configs/MessageDefault.txt && cp -r ./src/views/ ./build/src/",
+    "dev": "nodemon --watch './**/*.ts' --exec 'ts-node' index.ts",
+    "lint": "eslint --quiet .  --ext .ts",
+    "lint-fix": "eslint --quiet --fix .  --ext .ts",
+    "prettier": "npx prettier --write ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csv-parse": "^5.0.4",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "multer": "^1.4.4",
+    "nodemon": "^2.0.16",
+    "qr-image": "^3.2.0",
+    "qrcode-terminal": "^0.12.0",
+    "ts-node": "^10.7.0",
+    "whatsapp-web.js": "^1.16.6"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/multer": "^1.4.7",
+    "@types/qrcode-terminal": "^0.12.0",
+    "@typescript-eslint/eslint-plugin": "^5.21.0",
+    "@typescript-eslint/parser": "^5.21.0",
+    "eslint": "^8.14.0",
+    "eslint-config-google": "^0.14.0",
+    "prettier": "2.6.2",
+    "typescript": "^4.6.4"
+  }
 }
