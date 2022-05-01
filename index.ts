@@ -53,7 +53,7 @@ router.put('/message', async (req: any, response) => {
 
 app.use('', router)
 app.listen(Env('PORT'), async () => {
-  console.log('Server running in port ' + Env('PORT'))
+  console.log('Server running in port ' + Env('PORT') + ' ' + Env('ENVIRONMENT'))
   clientWhatsappService.client.on('qr', (qr: string) => {
     console.log('Obtener Qr')
     qrcode.generate(qr, { small: true })
