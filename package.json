@@ -6,7 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node index.js",
-        "build": "tsc --build",
+        "build": "tsc --build && cp ./src/configs/MessageDefault.txt ./build/src/configs/MessageDefault.txt && cp -r ./src/views/ ./build/src/ && cp ./.env ./build/.env",
         "build-clean": "rm -rf build",
         "post-build": "cp ./src/configs/MessageDefault.txt ./build/src/configs/MessageDefault.txt && cp -r ./src/views/ ./build/src/",
         "dev": "nodemon --watch './**/*.ts' --exec 'ts-node' index.ts",
