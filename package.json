@@ -12,7 +12,8 @@
     "dev": "nodemon --watch './**/*.ts' --exec 'ts-node' index.ts",
     "lint": "eslint --quiet .  --ext .ts",
     "lint-fix": "eslint --quiet --fix .  --ext .ts",
-    "prettier": "npx prettier --write ."
+    "prettier": "npx prettier --write .",
+    "dev-win": "nodemon --exec npx ts-node ./index.ts"
   },
   "keywords": [],
   "author": "",
