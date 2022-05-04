@@ -76,7 +76,7 @@
         data.append('file', fileInput.files[0])
         let timerInterval
         Swal.showLoading()
-        fetch('/send-message', {
+        fetch('/send-message-xls', {
           method: 'POST',
           body: data,
         }).then(async (response) => {
