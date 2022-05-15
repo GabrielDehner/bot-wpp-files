@@ -8,6 +8,9 @@ import ClientWhatsappService from './src/services/ClientWhatsappService'
 import { getMessage } from './src/services/MessageService'
 import { proccessFile, proccessFileXls } from './src/services/ProccessFileService'
 import { NameAndPhone } from './src/models/NameAndPhoneInterface'
+import { Server } from 'socket.io'
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const QR = require('qrcode-base64')
 
 const clientWhatsappService = new ClientWhatsappService()
 
@@ -70,14 +73,23 @@ router.put('/message', async (req: any, response) => {
 })
 
 app.use('', router)
-app.listen(Env('PORT'), async () => {
+const server = app.listen(Env('PORT'), async () => {
   console.log('Server running in port ' + Env('PORT') + ' ' + Env('ENVIRONMENT'))
-  clientWhatsappService.client.on('qr', (qr: string) => {
-    console.log('Obtener Qr')
-    qrcode.generate(qr, { small: true })
-  })
-  clientWhatsappService.client.on('ready', () => {
-    clientWhatsappService.isReady = true
-    console.log('El cliente ya esta configurado...')
+  const io = new Server(server)
+  io.on('connection', (socket) => {
+    console.log("New connection", socket.id)
+    if (clientWhatsappService.qrCurrent && !clientWhatsappService.isReady) io.sockets.emit('srv:qr', { time: new Date(), src: clientWhatsappService.qrCurrent })
+    clientWhatsappService.client.on('qr', (qr: string) => {
+      const img = QR.drawImg(qr)
+      clientWhatsappService.qrCurrent = img
+      console.log('Obtener Qr')
+      qrcode.generate(qr, { small: true })
+      io.sockets.emit('srv:qr', { time: new Date(), src: clientWhatsappService.qrCurrent })
+    })
+    clientWhatsappService.client.on('ready', () => {
+      clientWhatsappService.isReady = true
+      console.log('El cliente ya esta configurado...')
+      io.sockets.emit('srv:ready', { success: true })
+    })
   })
 })

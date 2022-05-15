@@ -3,6 +3,8 @@ import { Client } from 'whatsapp-web.js'
 export default class ClientWhatsappService {
   public client: Client
   public isReady = false
+  public qrCurrent = ''
+  public qrPrevious = ''
 
   constructor() {
     this.client = new Client({})
